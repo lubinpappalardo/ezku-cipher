@@ -1,6 +1,4 @@
-from colorama import Fore, Style
 import string
-
 
 def decrypt():
 
@@ -10,10 +8,6 @@ def decrypt():
     binary_list = []
 
     alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    
-    #break the code in an array with each numbers
-    #code = [*str(input(Fore.WHITE + "Enter code : ")).split()]
-    #print(code)
       
     binary_list = []
     high_lenght = 0
@@ -21,12 +15,8 @@ def decrypt():
     for i in range(len(code)):
       code_converted = [*f"{int(code[i]):#010b}"[2:]]
       code_converted.reverse()
-      #print(code_converted)
-      #print("".join(code_converted))
       if len(code_converted) > high_lenght:
         high_lenght = len(code_converted)
-  
-    #print(high_lenght)
   
     for i in range(len(code)):
       code_converted = [*f"{int(code[i]):#010b}"[2:]]
@@ -50,13 +40,6 @@ def decrypt():
       final_byte.append("".join(new_byte))
       new_byte.clear()
     
-    #reconvert binary to numbers
-    #for i in range(len(final_byte)):
-      #code = int(final_byte[i], 2)
-      #print(code, end=" ")
-  
-    #print("")
-    
     for i in range(len(final_byte)):
       code = int(final_byte[i], 2)
       if code != 0:
@@ -75,6 +58,7 @@ def decrypt():
       print(" ", end="")
   
 
+
 def encrypt():
 
   def cipher(word):
@@ -90,11 +74,6 @@ def encrypt():
       else:
         #do nothing
         print("", end="")
-
-    
-    #print(binary_list)
-
-    #0 0 0 23 15 1 9
     
     byte_index = 7
     new_byte = []
@@ -104,14 +83,10 @@ def encrypt():
     for i in range(byte_index):
       for i in range(len(binary_list)):
         bi = [*binary_list[i]]
-        #bi.reverse()
         new_byte.append(bi[byte_index])
-      #print("".join(new_byte))
       byte_index -= 1
       final_byte.append("".join(new_byte))
       new_byte.clear()
-    
-    #print(final_byte) #raw array of the answer in binary
   
     def sum(l):
       total = 0
@@ -121,8 +96,6 @@ def encrypt():
     
     #reconvert binary to numbers
     for i in range(len(final_byte)):
-      #print(final_byte[len(final_byte) - 1 - i])
-      #if sum([*final_byte[len(final_byte) - 1 - i]]) != 0:
       code = int(final_byte[len(final_byte) - 1 - i], 2) #reverse the order of the answer
       print(Fore.GREEN + str(code), end=" ")
       
@@ -135,30 +108,3 @@ def encrypt():
     for i in range(len(word)):
       cipher(word[i])
       print("/ ", end="")
-
-      
-
-while True:
-
-  print(Style.RESET_ALL)
-
-  try:
-    choice = int(input(Fore.BLUE + "Choose your action :\n1 - Encrypt\n2 - Decrypt\n> "))
-  except:
-    print(Fore.RED + "Invalid syntax, enter a number")
-    choice = 0
-  
-  if choice == 1:
-    try:
-      encrypt()
-    except Exception as e:
-      print(Fore.RED + "An error has occured: " + str(e))
-
-  elif choice == 2:
-    try:
-      decrypt()
-    except Exception as e:
-      print(Fore.RED + "An error has occured: " + str(e))
-
-  elif choice != 0:
-    print(Fore.RED + "Action not valid")
