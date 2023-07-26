@@ -19,7 +19,7 @@ Longer converted code | No
 - - - -
 ## __Ezku V2__ ##
 
-A big upgrade of Ezku V1 in terms of possibility
+An upgrade of Ezku V1 in terms of possibility
 Features  | Yes/No
 ------------- | -------------
 Lower characters  | Yes
@@ -31,3 +31,15 @@ Other alphabets | No
 --------------------------------------- | --------
 Simpler and shorter converted code | No
 Longer converted code | Yes
+- - - -
+## __Ezku V3__ ##
+
+A massive upgrade
+Features  | 
+------------- | 
+Every ASCII characters | 
+Line breaks / spaces | 
+--------------------------------------- | 
+Cleaner code
+Output is always 7 set of digits
+
