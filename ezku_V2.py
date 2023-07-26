@@ -1,5 +1,3 @@
-from colorama import Fore, Style
-
 def decrypt():
 
   def cipher(code):
@@ -98,30 +96,3 @@ def encrypt():
     for i in range(len(split_text)):
       cipher(split_text[i])
       print("/ ", end="")
-
-      
-
-while True:
-
-  print(Style.RESET_ALL)
-
-  try:
-    choice = int(input(Fore.BLUE + "Choose your action :\n1 - Encrypt\n2 - Decrypt\n> "))
-  except:
-    print(Fore.RED + "Invalid syntax, enter a number")
-    choice = 0
-  
-  if choice == 1:
-    try:
-      encrypt()
-    except Exception as e:
-      print(Fore.RED + "An error has occured: " + str(e))
-
-  elif choice == 2:
-    try:
-      decrypt()
-    except Exception as e:
-      print(Fore.RED + "An error has occured: " + str(e))
-
-  elif choice != 0:
-    print(Fore.RED + "Action not valid")
